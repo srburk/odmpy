@@ -25,6 +25,29 @@ Requires Python >= 3.7.
 
 You must already have [Python](https://wiki.python.org/moin/BeginnersGuide/Download) installed on your system. If you wish to use the merge feature for audiobooks, you will also need to install [ffmpeg](https://ffmpeg.org/download.html).
 
+### Using `uv` (Recommended)
+
+You can run `odmpy` directly without installing it using `uvx` (or `uv tool run`):
+
+```bash
+uvx odmpy --help
+```
+
+To install `odmpy` with `uv`:
+
+```bash
+# Install from latest source
+uv tool install git+https://github.com/ping/odmpy.git
+
+# Upgrade
+uv tool upgrade odmpy
+
+# Uninstall
+uv tool uninstall odmpy
+```
+
+### Using `pip`
+
 ```bash
 # Install / Update to specific version
 python3 -m pip install git+https://git@github.com/ping/odmpy.git@0.8.1 --upgrade
@@ -452,14 +475,19 @@ The [CI Actions](https://github.com/ping/odmpy/blob/master/.github/workflows/lin
 currently configured also include lint tests using [flake8](https://github.com/pycqa/flake8),
 [pylint](https://github.com/PyCQA/pylint) and [mypy](https://github.com/python/mypy).
 
+Development environment is managed by [uv](https://github.com/astral-sh/uv).
+
 ```bash
-# 1. Install requirements for dev
-pip3 install -r requirements-dev.txt --upgrade
+# 1. Install requirements for dev and sync environment
+uv sync
 
 # 2. Make changes
 
 # 3. Check for linting errors
 sh dev-lint.sh
+
+# 4. Run tests
+sh run_tests.sh
 ```
 
 ## Disclaimer

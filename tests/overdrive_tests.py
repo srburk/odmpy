@@ -87,7 +87,6 @@ class OverDriveClientTests(BaseTestCase):
                     "canAddLibrariesInSora",
                     "isLuckyDayEnabled",
                     "isLexisNexis",
-                    "isAuroraEnabled",
                     "isInstantAccessEnabled",
                     "hasAdvantageAccounts",
                     "isAutocompleteEnabled",

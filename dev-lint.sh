@@ -1,6 +1,6 @@
 # helper script for linting
-#flake8 setup.py odmpy tests
-ruff check setup.py odmpy tests
-pylint setup.py odmpy tests
-black --check setup.py odmpy tests
-mypy --package odmpy --package tests
+#flake8 odmpy tests
+uv run ruff check odmpy tests
+uv run pylint odmpy tests
+uv run black --check odmpy tests
+uv run mypy --package odmpy --package tests
