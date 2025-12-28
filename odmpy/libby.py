@@ -285,6 +285,13 @@ class LibbyClient(object):
 
         self.max_retries = max_retries
         libby_session = requests.Session()
+        # Disable SSL verification due to certificate mismatch on sentry-read.svc.overdrive.com
+        libby_session.verify = False
+        # Suppress warnings
+        import urllib3
+
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
         adapter = HTTPAdapter(max_retries=Retry(total=max_retries, backoff_factor=0.1))
         for prefix in ("http://", "https://"):
             libby_session.mount(prefix, adapter)
