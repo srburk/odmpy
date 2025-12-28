@@ -1,6 +1,6 @@
 set -e
 
-coverage erase
+uv run coverage erase
 
-coverage run --append -m odmpy --version
-coverage run --append -m unittest -v tests
+uv run coverage run --append -m odmpy --version
+uv run coverage run --append -m unittest -v tests
